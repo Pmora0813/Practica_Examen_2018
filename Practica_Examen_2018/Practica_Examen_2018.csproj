@@ -96,7 +96,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="VehiculosAgencias.xslt">
+    <Content Include="Xslt\VehiculosAgencias.xslt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
