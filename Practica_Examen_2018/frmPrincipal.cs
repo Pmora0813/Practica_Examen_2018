@@ -77,25 +77,31 @@ namespace Practica_Examen_2018
             {
                 tras = Trasmision.Automatico;
             }
+            // Creamos y asignamos a la vez un Vehiculo
             Cotizador.Vehiculo = VehiculoFactory.CrearVehiculo(Convert.ToInt32(npdPrecioBase.Value), (Combustible)cmbCombustible.SelectedItem, (Categoria)cmbCategoria.SelectedItem, tras);
 
+            //Metodo para guardar el XML
             Cotizador.GuardarXML();
 
+            //Llamamos al metodo para mostrar el monto mensual en el 
+            //en el txt y le asignamos un formato para mostrarlo
             txtTotal.Text = Cotizador.CalcularTotal().ToString("C3");
             MostrarCotizador();
 
 
         }
-
+        //Metodo para cargar el XML y mostrarlo en el webbroser
         private void MostrarCotizador()
         {
+            //Obtenemos la ruta del archivo
             string ruta = Cotizador.Ruta;
 
+            //Transformanos el archivo XML en HTML con el metodo
             ruta = Cotizador.TransformXMLToHTML(ruta);
+
+            //Le asignamos el HTML al web broser
             wbbMostrar.Url = new Uri(Application.StartupPath + "\\" + ruta);
 
-            //MostrarOrden(Application.StartupPath + "\\" + ruta);
-            //wbbMostrar.Url = new Uri(ruta);           
         }
     }
 }
