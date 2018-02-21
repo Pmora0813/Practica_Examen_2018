@@ -14,6 +14,7 @@ namespace Practica_Examen_2018
     {
 
         CotizadorFacade Cotizador = null;
+        Extra extra = null;
 
 
         public frmPrincipal()
@@ -52,18 +53,18 @@ namespace Practica_Examen_2018
 
             if (chkCamara.Checked)
             {
-                Extra extra = new CamaraRetroceso();
+                extra = new CamaraRetroceso();
                 Cotizador.AgregarExtras(extra);
             }
 
             if (chkAlarma.Checked)
             {
-                Extra extra = new Alarma();
+                extra = new Alarma();
                 Cotizador.AgregarExtras(extra);
             }
             if (chkHalogeno.Checked)
             {
-                Extra extra = new Halogenos();
+                extra = new Halogenos();
                 Cotizador.AgregarExtras(extra);
             }
             Trasmision tras;
@@ -83,7 +84,7 @@ namespace Practica_Examen_2018
             txtTotal.Text = Cotizador.CalcularTotal().ToString("C3");
             MostrarCotizador();
 
-            
+
         }
 
         private void MostrarCotizador()
